@@ -27,10 +27,18 @@ if [ ! -d "$FONT_DIR" ]; then
   fc-cache -f
 fi
 
+echo "==> Installing Starship prompt"
+if ! command -v starship >/dev/null; then
+  curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+fi
+if ! grep -q 'starship init bash' "$HOME/.bashrc"; then
+  printf '\n# Starship prompt\neval "$(starship init bash)"\n' >> "$HOME/.bashrc"
+fi
+
 mkdir -p "$HOME/Pictures"
 
 echo "==> Linking configs with stow"
-for pkg in sway waybar foot mako; do
+for pkg in sway waybar foot mako starship; do
   # Back up any existing real config so stow doesn't refuse to link
   find "$pkg" -type f | while read -r f; do
     target="$HOME/${f#"$pkg"/}"
@@ -43,5 +51,6 @@ for pkg in sway waybar foot mako; do
 done
 
 echo
-echo "Done. Log out, click the gear icon on the login screen, choose 'Sway', and log in."
+echo "Done. Open a new terminal to see the new prompt."
+echo "If you're not in Sway yet: log out, click the gear icon on the login screen, choose 'Sway', and log in."
 echo "Press Super+Return for a terminal, Super+d for the app launcher."

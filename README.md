@@ -15,6 +15,7 @@ package that mirrors `$HOME`:
 | `waybar/` | Top status bar                          |
 | `foot/`   | Terminal                                |
 | `mako/`   | Notifications                           |
+| `starship/` | Shell prompt (Starship)               |
 
 `stow sway` symlinks `sway/.config/sway/config` to `~/.config/sway/config`, so
 editing either one edits the file in this repo.
@@ -53,7 +54,7 @@ log in. To go back, pick **Ubuntu** on that menu.
 
 ## Next ideas
 
-- Wallpaper: set `output * bg ~/Pictures/wall.jpg fill` in the sway config
-- Shell prompt (Starship) and a zsh/fish config as another stow package
+- Own wallpaper: change the `output * bg` line in the sway config
+- A zsh or fish config as another stow package
 - Matching GTK theme and icons for apps
 - Later: port keybinds and Waybar to Hyprland after an Ubuntu upgrade

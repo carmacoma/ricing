@@ -34,8 +34,9 @@ client.focused_inactive $surface  $base      $text  $surface  $surface
 client.unfocused        $surface  $base      $overlay $surface $surface
 client.urgent           $red      $base      $text  $red      $red
 
-# Solid background. For a wallpaper, use: output * bg ~/Pictures/wall.jpg fill
-output * bg #1e1e2e solid_color
+# Wallpaper lives next to this file. To use your own, swap the path,
+# e.g. output * bg ~/Pictures/my-wall.jpg fill
+output * bg ~/.config/sway/wallpaper.png fill #1e1e2e
 
 ### Input (laptop touchpad + keyboard) ######################################
 input type:touchpad {
